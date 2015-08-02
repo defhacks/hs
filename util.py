@@ -16,7 +16,7 @@ def print_deckdiff(deck_a, deck_b):
     a = Counter(deck_a)
     b = Counter(deck_b)
     b.subtract(a)
-    for k,v in b.items():
+    for k,v in b.most_common():
         if v == 0:
             continue
         else:
