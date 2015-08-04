@@ -38,7 +38,8 @@ def print_decklist(decklist):
         print("%s x %d" % (card, count)) 
 
 if __name__ == "__main__":
-    url = 'http://www.hearthstoneplayers.com/decks/aggro-paladin-2/'
+    #url = 'http://www.hearthstoneplayers.com/decks/aggro-paladin-2/'
+    url = sys.argv[1].rstrip()
     decklist = url_to_decklist(url)
     #pp.pprint(decklist)
     print_decklist(decklist)

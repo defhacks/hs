@@ -36,7 +36,8 @@ def print_decklist(decklist):
         print("%s x %d" % (card, count)) 
 
 if __name__ == "__main__":
-    url = 'http://www.hearthstonetopdecks.com/decks/mryaguts-season-14-face-warrior/'
+    #url = 'http://www.hearthstonetopdecks.com/decks/mryaguts-season-14-face-warrior/'
+    url = sys.argv[1].rstrip()
     decklist = url_to_decklist(url)
     #pp.pprint(decklist)
     print_decklist(decklist)

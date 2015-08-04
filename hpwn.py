@@ -37,8 +37,8 @@ def print_decklist(decklist):
         print("%s x %d" % (card, count)) 
 
 if __name__ == "__main__":
-    url = 'http://www.hearthpwn.com/decks/276644-top-6-eu-loatheb-patron'
-    #url_to_decklist(sys.argv[1])
+    #url = 'http://www.hearthpwn.com/decks/276644-top-6-eu-loatheb-patron'
+    url = sys.argv[1].rstrip()
     decklist = url_to_decklist(url)
     #pp.pprint(decklist)
     print_decklist(decklist)
