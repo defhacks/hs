@@ -6,7 +6,6 @@ import sys
 import requests
 import pprint
 from bs4 import BeautifulSoup
-from util import flatten_decklist
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -43,4 +42,3 @@ if __name__ == "__main__":
     decklist = url_to_decklist(url)
     #pp.pprint(decklist)
     print_decklist(decklist)
-    #pp.pprint(flatten_decklist(decklist))

@@ -1,4 +1,10 @@
 import warnings
+import hpwn
+import hsp
+import hstd
+import ts
+import re
+
 from collections import Counter
 
 def flatten_decklist(decklist):
@@ -25,4 +31,17 @@ def print_deckdiff(deck_a, deck_b):
             else:
                 print("%s %s" % (v,k))
 
+def url_to_decklist(url):
+    if re.match( r'^(https?://)?tempostorm', url):
+        decklist = ts.url_to_decklist(url)
+    elif re.match( r'^(https?://)?hearthpwn', url):
+        decklist = hpwn.url_to_decklist(url)
+    elif re.match( r'^(https?://)?hearthstonetopdecks', url):
+        decklist = hstd.url_to_decklist(url)
+    elif re.match( r'^(https?://)?hearthstoneplayers', url):
+        decklist = hsp.url_to_decklist(url)
+    else:
+        raise ValueError('unsupported deck url: %s' % (url))
+
+    return decklist
 

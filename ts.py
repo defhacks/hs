@@ -7,7 +7,6 @@ import sys
 import requests
 import pprint
 from bs4 import BeautifulSoup
-from util import flatten_decklist
 
 pp = pprint.PrettyPrinter(indent=4)
 post_url = 'https://tempostorm.com/deck'
@@ -28,7 +27,7 @@ def url_to_decklist(url):
     headers = { 'Content-type' : 'application/json' } # , 'Accept' : 'text/plain' }
     payload = { 'slug' : slug }
     r = requests.post(post_url, data=json.dumps(payload), headers=headers)
-    data = json.loads(r.content)
+    data = json.loads(r.content.decode('utf-8'))
     #pp.pprint(data)
     card_list = data['deck']['cards']
     #print(card_list.prettify().encode('utf-8'))
@@ -44,4 +43,3 @@ if __name__ == "__main__":
     decklist = url_to_decklist(url)
     #pp.pprint(decklist)
     print_decklist(decklist)
-    #pp.pprint(flatten_decklist(decklist))
